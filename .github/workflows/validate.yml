@@ -11,10 +11,10 @@ jobs:
   validate-hacs:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v3"
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - name: HACS validation
-        uses: "hacs/action@main"
+        uses: hacs/action@dcb30e72781db3f207d5236b861172774ab0b485 # 22.5.0
         with:
           category: "integration"
       - name: Hassfest validation
-        uses: home-assistant/actions/hassfest@master
+        uses: home-assistant/actions/hassfest@868e6cb4607727d764341a158d98872cd63fa658 # master 2026-05-27
