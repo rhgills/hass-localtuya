@@ -1,15 +1,13 @@
 {
   "domain": "localtuya",
-  "name": "LocalTuya integration",
-  "codeowners": [
-    "@rospogrigio", "@postlund"
-  ],
+  "name": "LocalTuya (rhgills fork)",
+  "codeowners": ["@rhgills"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/rospogrigio/localtuya/",
+  "documentation": "https://github.com/rhgills/hass-localtuya/",
   "homeassistant": "2022.11.0",
   "iot_class": "local_push",
-  "issue_tracker": "https://github.com/rospogrigio/localtuya/issues",
+  "issue_tracker": "https://github.com/rhgills/hass-localtuya/issues",
   "requirements": [],
   "version": "5.2.3"
 }
