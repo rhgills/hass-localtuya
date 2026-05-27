@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# tests/run-tests — build the test image and run the regression suite.
+#
+# Pre-push smoke test. CI runs tox per .github/workflows/tox.yaml; this is
+# for the local dev loop where you want to know in 30 s whether you broke
+# anything before pushing.
+set -euo pipefail
+
+if ! command -v docker >/dev/null 2>&1; then
+  echo "docker not on PATH — install Docker Desktop / engine and retry." >&2
+  exit 2
+fi
+
+cd "$(dirname "$0")/.."
+
+docker build -t hass-localtuya-tests -f tests/Dockerfile .
+docker run --rm hass-localtuya-tests
