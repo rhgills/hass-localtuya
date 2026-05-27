@@ -69,6 +69,18 @@ keeping upstream's — that's progress. Note it in the patches table below with 
 |---|---|---|---|
 | 1 | `light: color_temp mired → kelvin` | [PR #1](https://github.com/rhgills/hass-localtuya/pull/1) — cherry-picked [rospogrigio/localtuya#2184](https://github.com/rospogrigio/localtuya/pull/2184) (`avataar`); 2-line `int()` cast adapted from [rospogrigio/localtuya#2203](https://github.com/rospogrigio/localtuya/pull/2203); + four defensive fixes from adversarial review | Home Assistant 2026.3 ([core PR #161777](https://github.com/home-assistant/core/pull/161777)) removed the deprecated mired color-temperature unit; upstream still uses it, so color_temp is broken on every tunable-white Tuya bulb on HA ≥ 2026.3. |
 
+## Fork-only additions (not patches)
+
+Things this fork carries that aren't cherry-picks from upstream. These don't
+need to track an upstream PR and don't get a row in the patches table.
+
+- **Regression test suite** — `tests/test_light_color_temp.py`, wired into
+  `tox.ini` and the GitHub Actions workflow. Locks in the behavior fixed by
+  patch #1; runs in pinned Python 3.14 + HA ≥ 2026.3. Three of the tests
+  fail on the pre-patch code with the exact values the adversarial review
+  predicted, which is the proof the patch sticks. Local validation via
+  `tests/run-tests` (Docker-based, single command).
+
 ## Installing this fork in Home Assistant via HACS
 
 1. HACS → **Integrations** → menu (⋮) → **Custom repositories**
