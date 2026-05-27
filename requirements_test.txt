@@ -1,9 +1,13 @@
-black==22.3.0
-codespell==2.0.0
-flake8==3.9.2
-mypy==0.901
-pydocstyle==6.1.1
-pylint==2.8.2
-pylint-strict-informational==0.1
 pytest>=7.0
 homeassistant>=2026.3
+
+# Lint/typing deps removed — the corresponding tox envs are dormant
+# (see tox.ini comment). Re-add when re-enabling those envs, with versions
+# compatible with py314:
+#   black>=24
+#   codespell>=2.2
+#   flake8>=7
+#   mypy>=1.7
+#   pydocstyle>=6.3
+#   pylint>=3.0
+#   pylint-strict-informational>=0.1
